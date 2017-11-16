@@ -78,6 +78,7 @@ function quick_sort($arr){
 }
 
 
+
 function select_sort($arr){
 	$length = count($arr);
 	

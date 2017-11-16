@@ -117,7 +117,28 @@ function insert_sort($arr){
 
 
 
-
+function shell_sort($arr){
+    //计算数组长度
+    $length=count($arr);
+    //计算增量
+    for ($gap=floor($length/2); $gap >0 ; $gap=floor($gap/2)) {
+    //根据增量进行分组，进行直接插入排序
+        for ($i=1; $i*$gap <$length ; $i++) {
+            $tmp=$arr[$i*$gap];
+            for ($j=$i-1; $j >=0 ; $j--) {
+                if($tmp<$arr[$j*$gap]){   
+					$arr[($j+1)*$gap]=$arr[$j*$gap];
+                    $arr[$j*$gap]=$tmp;
+                }else{
+                    break;
+                }
+            }
+        }
+		var_dump($gap);
+		print_r($arr);
+    }
+    return $arr;
+}
 
 
 
@@ -126,7 +147,8 @@ $arr = array(10,2,36,14,10,25,23,85,99,45);
 //$arr = bubble_sort($arr);
 //$arr = quick_sort($arr);
 //$arr = select_sort($arr);
-$arr = insert_sort($arr);
+//$arr = insert_sort($arr);
+$arr = shell_sort($arr);
 print_r($arr);
 	
 	
